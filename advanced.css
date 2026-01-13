@@ -1,1 +1,22 @@
+.card {
+  max-width: 340px;
+}
+
+.card label {
+  margin-top: 10px;
+}
+
+.finalize {
+  margin-top: 18px;
+  width: 100%;
+  padding: 11px 0;
+  border-radius: 999px;
+  border: none;
+  background: #4cd964;
+  color: #003b2b;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 0 18px rgba(76, 217, 100, 0.6);
+  cursor: pointer;
+}
 
