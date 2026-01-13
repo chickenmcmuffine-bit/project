@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.canvas {
+  position: relative;
+  width: 970px;
+  height: 505px;
+  background: radial-gradient(
+      ellipse at center,
+      #001a14 0%,
+      #000a08 45%,
+      #000 100%
+  );
+  overflow: hidden;
+}
+
+/* Light streaks */
+.streak {
+  position: absolute;
+  width: 120%;
+  height: 8px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 180, 0.7),
+    transparent
+  );
+  filter: blur(6px);
+  transform: rotate(-12deg);
+}
+
+.streak-1 {
+  top: 120px;
+  left: -10%;
+}
+
+.streak-2 {
+  top: 260px;
+  left: -15%;
+  opacity: 0.5;
+}
+
+.streak-3 {
+  top: 80px;
+  left: 10%;
+  opacity: 0.35;
+}
+
+/* Dotted diagonal line */
+.dots {
+  position: absolute;
+  width: 140%;
+  height: 4px;
+  top: 320px;
+  left: -20%;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0, 255, 180, 0.6),
+    rgba(0, 255, 180, 0.6) 4px,
+    transparent 4px,
+    transparent 14px
+  );
+  transform: rotate(-12deg);
+  filter: blur(1px);
+}
