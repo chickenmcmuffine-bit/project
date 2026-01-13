@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Neon Background</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="canvas">
+    <div class="streak streak-1"></div>
+    <div class="streak streak-2"></div>
+    <div class="streak streak-3"></div>
+
+    <div class="dots"></div>
+  </div>
+</body>
+</html>
