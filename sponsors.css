@@ -1,1 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
+body {
+  background: #000;
+}
+
+/* ===== Background ===== */
+.canvas {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    ellipse at center,
+    #001a14 0%,
+    #000c09 45%,
+    #000 100%
+  );
+  overflow: hidden;
+}
+
+/* Neon streaks */
+.streak {
+  position: absolute;
+  width: 140vw;
+  height: 1.2vh;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 180, 0.75),
+    transparent
+  );
+  filter: blur(1.2vh);
+  transform: rotate(-12deg);
+}
+
+.streak-1 { top: 25vh; left: -20vw; }
+.streak-2 { top: 45vh; left: -25vw; opacity: 0.55; }
+.streak-3 { top: 15vh; left: -5vw; opacity: 0.35; }
+
+.dots {
+  position: absolute;
+  width: 160vw;
+  height: 0.5vh;
+  top: 60vh;
+  left: -30vw;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0, 255, 180, 0.6),
+    rgba(0, 255, 180, 0.6) 0.6vh,
+    transparent 0.6vh,
+    transparent 2vh
+  );
+  transform: rotate(-12deg);
+  filter: blur(0.2vh);
+}
+
+/* ===== Foreground Content ===== */
+.content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #d8fff3;
+}
+
+.title {
+  font-size: 1.4rem;
+  margin-bottom: 24px;
+  color: #b8ffec;
+  text-shadow: 0 0 8px rgba(0, 255, 180, 0.4);
+}
+
+.sponsor {
+  margin-bottom: 28px;
+}
+
+.sponsor img {
+  max-width: 140px;
+  margin-bottom: 10px;
+}
+
+.sponsor p {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+/* CTA Button */
+.cta {
+  margin-top: auto;
+  background: #4cd964;
+  color: #003b2b;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 0 18px rgba(76, 217, 100, 0.6);
+  cursor: pointer;
+}
