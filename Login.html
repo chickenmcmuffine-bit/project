@@ -1,1 +1,217 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Account Log In</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", monospace;
+}
+
+body {
+  height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b6ff6a;
+}
+
+/* ===== PHONE FRAME ===== */
+.phone-shell {
+  width: 390px;
+  height: 780px;
+  border-radius: 32px;
+  background: #000;
+  box-shadow: 
+    0 0 0 8px #111,
+    0 0 40px rgba(0,255,180,0.4);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ===== SCREEN ===== */
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* ===== BACKGROUND ===== */
+.canvas {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    #001a14 0%,
+    #000c09 45%,
+    #000 100%
+  );
+  z-index: 0;
+}
+
+.streak {
+  position: absolute;
+  width: 140%;
+  height: 1.2%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,255,180,0.7),
+    transparent
+  );
+  filter: blur(1.2vh);
+  transform: rotate(-12deg);
+  animation: drift 14s linear infinite;
+}
+
+.streak-1 { top: 28%; left: -20%; }
+.streak-2 { top: 55%; left: -30%; opacity: 0.5; }
+
+@keyframes drift {
+  from { transform: rotate(-12deg) translateX(-10%); }
+  to   { transform: rotate(-12deg) translateX(10%); }
+}
+
+/* ===== CONTENT ===== */
+.page {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 3vh 0;
+}
+
+/* ===== LOGOS ===== */
+.side-logo img {
+  height: 120px;
+  filter: drop-shadow(0 0 18px rgba(182,255,106,0.7));
+}
+
+/* ===== LOGIN CARD ===== */
+.card {
+  width: 85%;
+  padding: 1.8rem;
+  border-radius: 14px;
+  background: linear-gradient(to bottom, #022418, #00150f);
+  box-shadow: 0 0 30px rgba(0,255,180,0.3);
+  text-align: center;
+}
+
+.card h2 {
+  margin-bottom: 1.4rem;
+  text-shadow: 0 0 10px rgba(182,255,106,0.6);
+}
+
+label {
+  display: block;
+  text-align: left;
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1.1rem;
+  background: #001f16;
+  border: 1px solid #2f7f63;
+  border-radius: 6px;
+  color: #b6ff6a;
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0 0 10px rgba(120,255,180,0.6);
+}
+
+/* ===== LOGIN BUTTON ===== */
+.login-btn {
+  display: block;
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(to right, #2f7f63, #3cae7a);
+  color: #d8ff9c;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.login-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(120,255,180,0.7);
+}
+
+.note {
+  font-size: 0.65rem;
+  margin-top: 0.7rem;
+  opacity: 0.85;
+}
+
+/* ===== REAL MOBILE ===== */
+@media (max-width: 480px) {
+  .phone-shell {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone-shell">
+  <div class="phone-screen">
+
+    <!-- Background -->
+    <div class="canvas">
+      <div class="streak streak-1"></div>
+      <div class="streak streak-2"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="page">
+
+      <div class="side-logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyowQuoTwBL-gQj3QM9V-VSWY45IiGTcdZdw&s">
+      </div>
+
+      <div class="card">
+        <h2>Account Log In</h2>
+
+        <label>Username*</label>
+        <input type="text">
+
+        <label>Password*</label>
+        <input type="password">
+
+        <a href="dashboard.html" class="login-btn">Log In</a>
+
+        <p class="note">
+          Your Gamer profile name will be shown.<br>
+          Never share passwords.
+        </p>
+      </div>
+
+      <div class="side-logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyowQuoTwBL-gQj3QM9V-VSWY45IiGTcdZdw&s">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
