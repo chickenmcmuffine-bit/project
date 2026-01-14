@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monster Recreate – Phone Prototype</title>
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Courier New", monospace;
+    }
+
+    html, body {
+      height: 100%;
+      background: #000;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #b6ff6a;
+    }
+
+    /* ===== PHONE FRAME ===== */
+    .phone {
+      width: 375px;
+      height: 812px;
+      border-radius: 36px;
+      background: #000;
+      border: 3px solid #1a1a1a;
+      box-shadow:
+        0 0 40px rgba(0,255,180,0.25),
+        inset 0 0 0 2px rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Notch */
+    .phone::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 24px;
+      background: #000;
+      border-radius: 14px;
+      z-index: 10;
+    }
+
+    /* ===== BACKGROUND ===== */
+    .canvas {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at center,
+        #001a14 0%,
+        #000c09 45%,
+        #000 100%
+      );
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .streak {
+      position: absolute;
+      width: 140%;
+      height: 1.2%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0,255,180,0.7),
+        transparent
+      );
+      filter: blur(1.2vh);
+      transform: rotate(-12deg);
+      animation: drift 14s linear infinite;
+    }
+
+    .streak-1 { top: 20%; left: -20%; }
+    .streak-2 { top: 40%; left: -25%; opacity: 0.5; }
+    .streak-3 { top: 10%; left: -5%; opacity: 0.35; }
+
+    @keyframes drift {
+      from { transform: rotate(-12deg) translateX(-10%); }
+      to   { transform: rotate(-12deg) translateX(10%); }
+    }
+
+    .dots {
+      position: absolute;
+      width: 160%;
+      height: 0.5%;
+      top: 60%;
+      left: -30%;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(0,255,180,0.6),
+        rgba(0,255,180,0.6) 6px,
+        transparent 6px,
+        transparent 20px
+      );
+      transform: rotate(-12deg);
+    }
+
+    /* ===== CONTENT ===== */
+    main.container {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 80px 24px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      letter-spacing: 0.25em;
+      margin-bottom: 30px;
+      text-shadow: 0 0 12px rgba(182,255,106,0.6);
+    }
+
+    h4 {
+      font-size: 1rem;
+      margin-bottom: 40px;
+      text-shadow: 0 0 8px rgba(182,255,106,0.5);
+    }
+
+    /* ===== LOGO ===== */
+    .logo-placeholder {
+      height: 160px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-img {
+      height: 100%;
+      max-width: 80%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 18px rgba(182,255,106,0.7));
+      animation: logoPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes logoPulse {
+      0%,100% { filter: drop-shadow(0 0 18px rgba(182,255,106,0.6)); }
+      50%     { filter: drop-shadow(0 0 28px rgba(182,255,106,0.9)); }
+    }
+
+    /* ===== BUTTONS ===== */
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #2f7f63, #3cae7a);
+      color: #d8ff9c;
+      box-shadow: 0 0 15px rgba(80,255,180,0.35);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 25px rgba(120,255,180,0.7);
+    }
+
+   .sponsors {
+  margin-top: 30px; /* adjust this value */
+  padding: 14px 40px;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div class="phone">
+    <div class="canvas">
+      <div class="streak streak-1"></div>
+      <div class="streak streak-2"></div>
+      <div class="streak streak-3"></div>
+      <div class="dots"></div>
+    </div>
+
+    <main class="container">
+      <h1>MONSTER&nbsp;RECREATE</h1>
+
+      <div class="logo-placeholder">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyowQuoTwBL-gQj3QM9V-VSWY45IiGTcdZdw&s" class="logo-img">
+      </div>
+
+      <h4>Dedication <strong>NOT</strong> Addiction</h4>
+
+      <div class="actions">
+        <a href="#" class="btn">Log In</a>
+        <span>OR</span>
+        <a href="#" class="btn">Sign Up</a>
+      </div>
+
+      <a href="#" class="btn sponsors">Sponsors</a>
+    </main>
+  </div>
+
+</body>
+</html>
