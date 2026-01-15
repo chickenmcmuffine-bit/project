@@ -82,12 +82,13 @@ body {
   z-index: 1;
 }
 
-/* ===== ARRIVAL TEXT ===== */
+/* ===== COUNTDOWN ===== */
 .arrival {
   color: white;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-shadow: 0 0 14px rgba(255,255,255,0.8);
+  line-height: 1.6;
 }
 
 /* ===== BUTTON ===== */
@@ -128,8 +129,8 @@ body {
     <div class="streak streak-2"></div>
   </div>
 
-  <div class="arrival">
-    Arrival in 2 Days, 11 Hours, and 59 Minutes
+  <div class="arrival" id="countdown">
+    Calculating arrival...
   </div>
 
   <button class="home-btn" onclick="location.href='index.html'">
@@ -137,6 +138,38 @@ body {
   </button>
 
 </div>
+
+<script>
+  // ===== SET DELIVERY DATE =====
+  // Example: now + 2 days, 11 hours, 59 minutes
+  const deliveryTime = new Date();
+  deliveryTime.setDate(deliveryTime.getDate() + 2);
+  deliveryTime.setHours(deliveryTime.getHours() + 11);
+  deliveryTime.setMinutes(deliveryTime.getMinutes() + 59);
+
+  const countdownEl = document.getElementById("countdown");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = deliveryTime - now;
+
+    if (diff <= 0) {
+      countdownEl.textContent = "Your order has arrived!";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    countdownEl.textContent =
+      `Arrival in ${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 
 </body>
 </html>
