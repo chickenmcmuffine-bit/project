@@ -181,13 +181,19 @@ body {
   box-shadow: 0 0 28px rgba(120,255,120,0.9);
 }
 
-/* Hide hamburger on desktop */
-@media (min-width: 500px) {
-  .hamburger,
-  .mobile-menu {
-    display: none;
-  }
+  <script>
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("show");
 }
+
+document.querySelectorAll(".mobile-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("menu").classList.remove("show");
+  });
+});
+</script>
+
+
 </style>
 </head>
 
@@ -263,3 +269,4 @@ function toggleMenu() {
 
 </body>
 </html>
+
