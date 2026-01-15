@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", monospace;
+}
+
+body {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== PHONE ===== */
+.phone {
+  width: 390px;
+  height: 780px;
+  padding: 2rem 1.5rem;
+  border-radius: 36px;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  background: radial-gradient(
+    ellipse at center,
+    #001a14 0%,
+    #000c09 45%,
+    #000 100%
+  );
+
+  box-shadow:
+    0 0 0 10px #111,
+    0 0 60px rgba(0,255,180,0.4);
+}
+
+/* ===== BACKGROUND EFFECT ===== */
+.phone-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.streak {
+  position: absolute;
+  width: 140%;
+  height: 1.2%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,255,180,0.6),
+    transparent
+  );
+  filter: blur(1.2vh);
+  transform: rotate(-12deg);
+  animation: drift 14s linear infinite;
+}
+
+.streak-1 { top: 30%; left: -20%; }
+.streak-2 { top: 60%; left: -30%; opacity: 0.5; }
+
+@keyframes drift {
+  from { transform: rotate(-12deg) translateX(-10%); }
+  to   { transform: rotate(-12deg) translateX(10%); }
+}
+
+.phone > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== PROFILE ICON ===== */
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar::after {
+  content: "";
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #777;
+  box-shadow: 0 28px 0 6px #777;
+}
+
+/* ===== TEXT ===== */
+.username {
+  font-size: 1.6rem;
+  color: #b6ff6a;
+  text-shadow: 0 0 16px rgba(182,255,106,0.9);
+}
+
+.section-title {
+  font-size: 1.4rem;
+  color: #b6ff6a;
+  text-shadow: 0 0 14px rgba(182,255,106,0.8);
+}
+
+/* ===== BUTTON ===== */
+.action-btn {
+  width: 100%;
+  padding: 1.4rem;
+  border-radius: 999px;
+  border: none;
+
+  background: linear-gradient(to right, #4caf50, #66ff66);
+  color: white;
+
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  box-shadow: 0 0 35px rgba(120,255,120,0.8);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.action-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 45px rgba(120,255,120,1);
+}
+
+.action-btn:active {
+  transform: scale(0.97);
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <div class="phone-bg">
+    <div class="streak streak-1"></div>
+    <div class="streak streak-2"></div>
+  </div>
+
+  <div class="avatar"></div>
+
+  <div class="username">MeBoredChonks</div>
+
+  <div class="section-title">Your Flavours</div>
+
+  <button class="action-btn"  onclick="location.href='mrpark44.html'">Mr. Park 44</button>
+
+  <button class="action-btn" onclick="location.href='index.html'">Sign Out</button>
+
+</div>
+
+</body>
+</html>
 
