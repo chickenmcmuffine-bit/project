@@ -1,1 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Type Your Flavour</title>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Courier New", monospace;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #b6ff6a;
+    }
+
+    /* ===== BACKGROUND ===== */
+    .canvas {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at center,
+        #001a14 0%,
+        #000c09 45%,
+        #000 100%
+      );
+      z-index: -1;
+    }
+
+    .streak {
+      position: absolute;
+      width: 140%;
+      height: 1.2%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0,255,180,0.6),
+        transparent
+      );
+      filter: blur(1.2vh);
+      transform: rotate(-12deg);
+      animation: drift 14s linear infinite;
+    }
+
+    .streak-1 { top: 35%; left: -20%; }
+    .streak-2 { top: 60%; left: -30%; opacity: 0.5; }
+
+    @keyframes drift {
+      from { transform: rotate(-12deg) translateX(-10%); }
+      to   { transform: rotate(-12deg) translateX(10%); }
+    }
+
+    /* ===== PHONE FRAME ===== */
+    .phone {
+      width: 390px;
+      height: 780px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      width: 100%;
+      max-width: 340px;
+      padding: 2rem;
+      border-radius: 14px;
+      background: linear-gradient(to bottom, #022418, #00150f);
+      box-shadow: 0 0 30px rgba(0,255,180,0.35);
+      text-align: center;
+    }
+
+    .card h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+      text-shadow: 0 0 12px rgba(182,255,106,0.8);
+    }
+
+    .subtitle {
+      font-size: 0.75rem;
+      margin-bottom: 1.2rem;
+      opacity: 0.85;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.65rem;
+      margin-bottom: 1.2rem;
+      background: #001f16;
+      border: 1px solid #2f7f63;
+      border-radius: 6px;
+      color: #b6ff6a;
+      outline: none;
+    }
+
+    input:focus {
+      box-shadow: 0 0 12px rgba(120,255,180,0.6);
+    }
+
+    /* ===== BUTTON ===== */
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 999px;
+      background: linear-gradient(to right, #3fae55, #66ff66);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 25px rgba(120,255,120,0.8);
+    }
+
+    .note {
+      font-size: 0.6rem;
+      margin-top: 0.9rem;
+      opacity: 0.75;
+      line-height: 1.3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND -->
+  <div class="canvas">
+    <div class="streak streak-1"></div>
+    <div class="streak streak-2"></div>
+  </div>
+
+  <!-- PHONE VIEW -->
+  <div class="phone">
+    <div class="card">
+      <h1>Type Your Flavour</h1>
+      <p class="subtitle">(Only The Ones You Created)*</p>
+
+      <input type="text" placeholder="Enter flavour name" required>
+
+      <a href="options.html" class="btn">Go To Options</a>
+
+     
+    </div>
+  </div>
+
+</body>
+</html>
