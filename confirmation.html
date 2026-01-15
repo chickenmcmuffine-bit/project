@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pack Quantity</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", monospace;
+}
+
+body {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b6ff6a;
+}
+
+/* ===== PHONE ===== */
+.phone {
+  width: 390px;
+  height: 780px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+  overflow: hidden;
+  border-radius: 36px;
+
+  background: radial-gradient(
+    ellipse at center,
+    #001a14 0%,
+    #000c09 45%,
+    #000 100%
+  );
+
+  box-shadow:
+    0 0 0 10px #111,
+    0 0 60px rgba(0,255,180,0.4);
+}
+
+/* ===== BACKGROUND EFFECT ===== */
+.phone-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.streak {
+  position: absolute;
+  width: 140%;
+  height: 1.2%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,255,180,0.6),
+    transparent
+  );
+  filter: blur(1.2vh);
+  transform: rotate(-12deg);
+  animation: drift 14s linear infinite;
+}
+
+.streak-1 { top: 35%; left: -20%; }
+.streak-2 { top: 65%; left: -30%; opacity: 0.5; }
+
+@keyframes drift {
+  from { transform: rotate(-12deg) translateX(-10%); }
+  to   { transform: rotate(-12deg) translateX(10%); }
+}
+
+.phone > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== TITLE ===== */
+.title {
+  text-align: center;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 14px rgba(182,255,106,0.9);
+}
+
+/* ===== TOP SECTION ===== */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* COUNT */
+.count {
+  font-size: 3rem;
+  text-shadow: 0 0 20px rgba(182,255,106,0.9);
+}
+
+/* BUTTONS */
+.controls {
+  background: #3fae55;
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.ctrl-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  background: #111;
+  color: #66ff66;
+}
+
+.ctrl-btn:hover {
+  transform: scale(1.1);
+}
+
+/* PRODUCT */
+.product img {
+  width: 140px;
+  filter: drop-shadow(0 0 20px rgba(0,0,0,0.8));
+}
+
+/* ===== SHIPPING CARD ===== */
+.card {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: linear-gradient(to bottom, #022418, #00150f);
+  box-shadow: 0 0 25px rgba(0,255,180,0.35);
+  text-align: center;
+}
+
+.card h2 {
+  margin-bottom: 1rem;
+}
+
+.card input {
+  width: 100%;
+  padding: 0.7rem;
+  background: #001f16;
+  border: 1px solid #2f7f63;
+  border-radius: 6px;
+  color: #b6ff6a;
+  margin-bottom: 1rem;
+}
+
+.confirm {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(to right, #4caf50, #66ff66);
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.note {
+  font-size: 0.6rem;
+  margin-top: 0.6rem;
+  opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <div class="phone-bg">
+    <div class="streak streak-1"></div>
+    <div class="streak streak-2"></div>
+  </div>
+
+  <h1 class="title">MrPark44</h1>
+
+  <div class="top">
+    <div>
+      <div id="count" class="count">1</div>
+      <div class="controls">
+        <button class="ctrl-btn" onclick="change(-1)">−</button>
+        <button class="ctrl-btn" onclick="change(1)">+</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="assets/images/30pack.png" alt="30 Pack">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Shipment</h2>
+    <input type="text" placeholder="Enter Your Address*" />
+    <button class="confirm">Confirm</button>
+    
+  </div>
+
+</div>
+
+<script>
+let total = 1;
+
+function change(amount) {
+  total += amount;
+  if (total < 1) total = 1;
+  document.getElementById("count").textContent = total;
+}
+</script>
+
+</body>
+</html>
