@@ -73,6 +73,56 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    .hamburger {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 28px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background: white;
+      border-radius: 3px;
+    }
+
+    .menu {
+      position: absolute;
+      top: 55px;
+      right: 18px;
+      background: rgba(0,0,0,0.9);
+      border: 1px solid #2f7f63;
+      border-radius: 10px;
+      padding: 12px 18px;
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 50;
+    }
+
+    .menu a {
+      color: #b6ff6a;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .menu a:hover {
+      text-shadow: 0 0 10px rgba(182,255,106,0.8);
+    }
+
+    .menu.show {
+      display: flex;
     }
 
     /* ===== PHONE SCREEN ===== */
@@ -84,7 +134,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
 
     /* ===== CARD ===== */
@@ -143,37 +192,52 @@
       transform: scale(1.06);
       box-shadow: 0 0 25px rgba(120,255,120,0.8);
     }
-
-    .note {
-      font-size: 0.6rem;
-      margin-top: 0.9rem;
-      opacity: 0.75;
-      line-height: 1.3;
-    }
   </style>
 </head>
 
 <body>
 
-  
+<div class="canvas">
+  <div class="streak streak-1"></div>
+  <div class="streak streak-2"></div>
+</div>
 
-  <!-- PHONE VIEW -->
-  <div class="phone">
-    <div class="screen">
+<div class="phone">
 
-      <div class="card">
-        <h1>Type Your Flavour</h1>
-        <p class="subtitle">(Only The Ones You Created)*</p>
+  <!-- HAMBURGER -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-        <input type="text" placeholder="Enter flavour name" required>
+  <!-- MENU -->
+  <div class="menu" id="menu">
+    <a href="home.html">Home</a>
+    <a href="social.html">Social</a>
+    <a href="Create.html">Create</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="shop.html">Shop</a>
+  </div>
 
-        <a href="options.html" class="btn">Go To Options</a>
+  <div class="screen">
+    <div class="card">
+      <h1>Type Your Flavour</h1>
+      <p class="subtitle">(Only The Ones You Created)*</p>
 
-      
-     
+      <input type="text" placeholder="Enter flavour name" required>
 
+      <a href="options.html" class="btn">Go To Options</a>
     </div>
   </div>
+
+</div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+  }
+</script>
 
 </body>
 </html>
