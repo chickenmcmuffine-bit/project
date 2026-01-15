@@ -63,9 +63,28 @@
     .phone {
       width: 390px;
       height: 780px;
+      border-radius: 38px;
+      background: #050f0b;
+      box-shadow:
+        0 0 0 6px #0a2a1f,
+        0 0 40px rgba(0,255,180,0.35);
+      padding: 18px;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    /* ===== PHONE SCREEN ===== */
+    .screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 28px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
     /* ===== CARD ===== */
@@ -136,23 +155,23 @@
 
 <body>
 
-  <!-- BACKGROUND -->
-  <div class="canvas">
-    <div class="streak streak-1"></div>
-    <div class="streak streak-2"></div>
-  </div>
+  
 
   <!-- PHONE VIEW -->
   <div class="phone">
-    <div class="card">
-      <h1>Type Your Flavour</h1>
-      <p class="subtitle">(Only The Ones You Created)*</p>
+    <div class="screen">
 
-      <input type="text" placeholder="Enter flavour name" required>
+      <div class="card">
+        <h1>Type Your Flavour</h1>
+        <p class="subtitle">(Only The Ones You Created)*</p>
 
-      <a href="options.html" class="btn">Go To Options</a>
+        <input type="text" placeholder="Enter flavour name" required>
 
+        <a href="options.html" class="btn">Go To Options</a>
+
+      
      
+
     </div>
   </div>
 
