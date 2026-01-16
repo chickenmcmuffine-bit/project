@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post</title>
+  <link rel="stylesheet" href="social.css" />
+</head>
+<body>
+
+<div class="phone">
+  <div class="canvas">
+
+    <!-- Image -->
+    <img
+      src="monster.jpg"
+      alt="Post image"
+      class="post-image"
+    />
+
+    <!-- Right-side actions -->
+    <div class="actions">
+      <button class="like-btn" id="likeBtn">♡</button>
+      <span class="like-count" id="likeCount">128</span>
+    </div>
+
+    <!-- Bottom text -->
+    <div class="caption">
+      <strong>monster</strong><br />
+      New flavour incoming ⚡
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const likeBtn = document.getElementById("likeBtn");
+  const likeCount = document.getElementById("likeCount");
+
+  let liked = false;
+  let count = 128;
+
+  likeBtn.addEventListener("click", () => {
+    liked = !liked;
+    likeBtn.textContent = liked ? "♥" : "♡";
+    likeBtn.classList.toggle("liked");
+    count += liked ? 1 : -1;
+    likeCount.textContent = count;
+  });
+</script>
+
+</body>
+</html>
 
