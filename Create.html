@@ -6,39 +6,61 @@
   <title>Flavour Creator</title>
   <link rel="stylesheet" href="Create.css" />
 </head>
+
 <body>
+
   <div class="phone">
-  <div class="canvas">
-    <!-- Background -->
-    <div class="streak streak-1"></div>
-    <div class="streak streak-2"></div>
-    <div class="streak streak-3"></div>
-    <div class="dots"></div>
 
-    <!-- Card -->
-    <div class="card">
-      <h1>Flavour Creator</h1>
-
-      <label>What is your flavour?</label>
-      <input type="text" placeholder="" />
-
-      <label>What is your type?</label>
-      <input type="text" placeholder="" />
-
-      <label>What is your flavour name?</label>
-      <input type="text" placeholder="" />
-
-      <a href="advanced.html" class="btn-link">
-        <button>Create</button>
-      </a>
-
-
-      <p class="disclaimer">
-        * Flavours generated are fictional<br />
-        & for entertainment purposes only
-      </p>
+    <!-- HAMBURGER NAVBAR -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+
+    <div class="menu" id="menu">
+      <a href="home.html">Home</a>
+      <a href="social.html">Social</a>
+      <a href="Create.html">Create</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="shop.html">Shop</a>
     </div>
+
+    <!-- BACKGROUND -->
+    <div class="canvas">
+      <div class="streak streak-1"></div>
+      <div class="streak streak-2"></div>
+      <div class="streak streak-3"></div>
+      <div class="dots"></div>
+
+      <!-- CARD -->
+      <div class="card">
+        <h1>Flavour Creator</h1>
+
+        <label>What is your flavour?</label>
+        <input type="text" />
+
+        <label>What is your type?</label>
+        <input type="text" />
+
+        <label>What is your flavour name?</label>
+        <input type="text" />
+
+        <a href="advanced.html" class="btn-link">
+          <button>Create</button>
+        </a>
+
+        
+      </div>
+    </div>
+
   </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+  </script>
+
 </body>
 </html>
