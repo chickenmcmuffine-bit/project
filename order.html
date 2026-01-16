@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Order Complete</title>
+<title>Your Order</title>
 
 <style>
 * {
@@ -17,23 +17,18 @@ body {
   min-height: 100vh;
   background: #000;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 /* ===== PHONE ===== */
 .phone {
   width: 390px;
   height: 780px;
-  padding: 2rem 1.5rem;
   border-radius: 36px;
+  padding: 1.5rem;
   position: relative;
   overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
 
   background: radial-gradient(
     ellipse at center,
@@ -45,15 +40,12 @@ body {
   box-shadow:
     0 0 0 10px #111,
     0 0 60px rgba(0,255,180,0.4);
+
+  display: flex;
+  flex-direction: column;
 }
 
 /* ===== BACKGROUND EFFECT ===== */
-.phone-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
 .streak {
   position: absolute;
   width: 140%;
@@ -69,8 +61,8 @@ body {
   animation: drift 14s linear infinite;
 }
 
-.streak-1 { top: 35%; left: -20%; }
-.streak-2 { top: 65%; left: -30%; opacity: 0.5; }
+.streak-1 { top: 30%; left: -20%; }
+.streak-2 { top: 60%; left: -30%; opacity: 0.5; }
 
 @keyframes drift {
   from { transform: rotate(-12deg) translateX(-10%); }
@@ -82,40 +74,98 @@ body {
   z-index: 1;
 }
 
-/* ===== COUNTDOWN ===== */
-.arrival {
-  color: white;
+/* ===== TITLE ===== */
+.title {
   text-align: center;
+  font-size: 1.8rem;
+  color: #b6ff6a;
+  text-shadow: 0 0 18px rgba(182,255,106,0.9);
+  margin-bottom: 1rem;
+}
+
+/* ===== CONTENT AREA ===== */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+/* IMAGE */
+.product img {
+  width: 160px;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 20px rgba(0,0,0,0.9));
+}
+
+/* ITEM CARD */
+.order-item {
+  width: 100%;
+  background: rgba(0,40,30,0.85);
+  border-radius: 14px;
+  padding: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 0 20px rgba(0,255,180,0.3);
+  color: #b6ff6a;
+}
+
+.item-name {
+  font-size: 1rem;
+}
+
+/* QUANTITY */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.quantity-control button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #4cd964;
+  color: #003b2b;
   font-size: 1.2rem;
-  text-shadow: 0 0 14px rgba(255,255,255,0.8);
-  line-height: 1.6;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.quantity-control span {
+  min-width: 20px;
+  text-align: center;
+}
+
+.item-price {
+  font-size: 0.9rem;
+}
+
+/* ===== TOTAL ===== */
+.total {
+  font-size: 1.3rem;
+  text-align: right;
+  color: #66ff66;
 }
 
 /* ===== BUTTON ===== */
-.home-btn {
-  width: 100%;
-  padding: 1.6rem;
-  border-radius: 26px;
-  border: none;
-
+.order-btn {
+  margin-top: 1rem;
+  padding: 1.2rem;
+  border-radius: 999px;
   background: linear-gradient(to right, #4caf50, #66ff66);
-  color: #fff;
-
-  font-size: 1.8rem;
+  color: #ffffff;
+  font-size: 1.3rem;
   font-weight: bold;
-  cursor: pointer;
-
-  box-shadow: 0 0 40px rgba(120,255,120,0.9);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.home-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 55px rgba(120,255,120,1);
-}
-
-.home-btn:active {
-  transform: scale(0.97);
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 0 30px rgba(120,255,120,0.8);
 }
 </style>
 </head>
@@ -124,51 +174,54 @@ body {
 
 <div class="phone">
 
-  <div class="phone-bg">
-    <div class="streak streak-1"></div>
-    <div class="streak streak-2"></div>
+  <div class="streak streak-1"></div>
+  <div class="streak streak-2"></div>
+
+  <!-- TITLE LOCKED AT TOP -->
+  <div class="title">Your Order</div>
+
+  <!-- CENTER CONTENT -->
+  <div class="content">
+
+    <div class="product">
+      <img src="assets/images/12pack.png" alt="12 Pack">
+    </div>
+
+    <div class="order-item">
+      <div class="item-name">12 Pack</div>
+
+      <div class="quantity-control">
+        <button onclick="changeQty(-1)">−</button>
+        <span id="qty">1</span>
+        <button onclick="changeQty(1)">+</button>
+      </div>
+
+      <div class="item-price">$32.99</div>
+    </div>
+
+    <div class="total">
+      Total: $<span id="total">32.99</span>
+    </div>
+
   </div>
 
-  <div class="arrival" id="countdown">
-    Calculating arrival...
-  </div>
-
-  <button class="home-btn" onclick="location.href='home.html'">
-    Back to Home
-  </button>
+  <!-- BOTTOM BUTTON -->
+  <a href="address.html" class="order-btn">Confirm</a>
 
 </div>
 
 <script>
-  // ===== SET DELIVERY DATE =====
-  // Example: now + 2 days, 11 hours, 59 minutes
-  const deliveryTime = new Date();
-  deliveryTime.setDate(deliveryTime.getDate() + 2);
-  deliveryTime.setHours(deliveryTime.getHours() + 11);
-  deliveryTime.setMinutes(deliveryTime.getMinutes() + 59);
+let qty = 1;
+const unitPrice = 32.99;
 
-  const countdownEl = document.getElementById("countdown");
+function changeQty(amount) {
+  qty += amount;
+  if (qty < 1) qty = 1;
 
-  function updateCountdown() {
-    const now = new Date();
-    const diff = deliveryTime - now;
-
-    if (diff <= 0) {
-      countdownEl.textContent = "Your order has arrived!";
-      return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    countdownEl.textContent =
-      `Arrival in ${days} Days, ${hours} Hours, ${minutes} Minutes, ${seconds} Seconds`;
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+  document.getElementById("qty").textContent = qty;
+  document.getElementById("total").textContent =
+    (qty * unitPrice).toFixed(2);
+}
 </script>
 
 </body>
